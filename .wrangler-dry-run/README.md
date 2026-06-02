@@ -1,0 +1,1 @@
+This folder contains the built output assets for the worker "boardboard" generated at 2026-06-02T14:06:29.499Z.

@@ -1,0 +1,17 @@
+name = "boardboard-do"
+main = "src/worker/do-worker.ts"
+compatibility_date = "2025-05-19"
+compatibility_flags = ["nodejs_compat"]
+
+[[d1_databases]]
+binding = "DB"
+database_name = "boardboard-db"
+database_id = "1756c533-28a1-41a8-a528-f6b9c2b1af8e"
+
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "boardboard-storage"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["BoardDurableObject"]

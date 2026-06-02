@@ -1,0 +1,28 @@
+name = "boardboard"
+main = "custom-worker.ts"
+compatibility_date = "2025-05-19"
+compatibility_flags = ["nodejs_compat"]
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"
+
+[vars]
+ENVIRONMENT = "development"
+# OpenNext on Workers cannot dynamic-require middleware-manifest.json.
+NEXT_PRIVATE_MINIMAL_MODE = "1"
+
+[[d1_databases]]
+binding = "DB"
+database_name = "boardboard-db"
+database_id = "1756c533-28a1-41a8-a528-f6b9c2b1af8e"
+migrations_dir = "src/db/migrations"
+
+[[r2_buckets]]
+binding = "STORAGE"
+bucket_name = "boardboard-storage"
+
+[durable_objects]
+bindings = [
+  { name = "BOARD", class_name = "BoardDurableObject", script_name = "boardboard-do" }
+]

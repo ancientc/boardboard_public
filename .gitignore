@@ -1,0 +1,35 @@
+# dependencies
+node_modules/
+
+# next.js
+.next/
+out/
+
+# build
+.open-next/
+dist/
+
+# env
+.env
+.env.local
+.env.*.local
+.dev.vars
+
+# wrangler
+.wrangler/
+
+# editor
+.vscode/
+*.swp
+*.swo
+
+# os
+.DS_Store
+Thumbs.db
+
+# drizzle
+*.db
+*.db-journal
+
+# test
+coverage/

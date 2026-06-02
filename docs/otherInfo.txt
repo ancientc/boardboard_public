@@ -1,0 +1,38 @@
+
+full backend emulation (stops old preview, builds, runs workerd on :8787)
+
+pnpm preview
+  (wrangler dev with wrangler.toml + wrangler.do.toml so BoardDurableObject is available)
+
+
+Cloudflare / OpenNext build (use this instead of bare `opennextjs-cloudflare build` on Windows)
+
+pnpm cf:build
+
+Or manually:
+
+pnpm preview:stop
+pnpm exec opennextjs-cloudflare build
+
+PowerShell: use `;` between commands, not `&&` (unless PS 7+).
+
+If build fails with EBUSY on `.open-next\\assets`, a preview or workerd.exe still has the folder open — run `pnpm preview:stop` and retry.
+
+Deploy (applies remote D1 migrations, DO worker, then OpenNext app worker)
+
+pnpm deploy
+
+First-time / manual D1 schema only:
+
+pnpm wrangler d1 migrations apply boardboard-db --remote
+
+Production how to use AUTH_SECRET
+pnpm wrangler secret put AUTH_SECRET
+
+
+# 1. Authenticate
+pnpm wrangler login
+# 2. Create the D1 database
+pnpm wrangler d1 create boardboard-db
+# 3. Create the R2 bucket
+pnpm wrangler r2 bucket create boardboard-storage
